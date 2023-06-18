@@ -1,0 +1,31 @@
+\documentclass[serif,professionalfont]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\title{}
+\author{}
+\date{15 June 2023}
+\pagestyle{empty}
+\begin{document}
+
+%%% Why is this important application/task
+
+Collective intelligence and collective decision making in nature are admirable. They are elegant, robust, flexible and adaptive. Fully emulating them in engineering domain will be phenomenal for logistics, warehouse automation, transport, agriculture, environmental monitoring, surveillance, construction, space, etc. Multi-robot system is already in service for many usages including previously specified domains. However, making them like natural systems is still expected. Various types of multi-robot interactions are classified into three main groups: \textbf{coordination, cooperation, collaboration} \cite{prorok2021beyondRobustness}. \textbf{Coordination} seeks additive performance gains by minimizing interference within a system, such as avoiding collisions (e.g., in multi-robot path planning) or avoiding duplicate work (e.g., in multi-robot coverage). \textbf{Cooperation} considers teamwork where the system can achieve superadditive improvement, i.e., where the ‘whole is greater than the sum of its parts.’ \textbf{Collaboration} involves heterogeneous team interaction where agents leverage complementary capabilities, also leading to superadditive performance gains. Designing practical methods for effective collective (multi-robot) systems -- with good coordination, cooperation, collaboration -- is difficult. Firstly, If we look at the problem from centralised, fully observable perspective, solutions of a lot of problem tend to be proven np-hard or np-complete -- they don't scale well. Secondly, if we look at the problem partially observable, decentralised perspective, the questions arise -- who/what/when we are going to communicate. Thirdly, even if we devise a solution solving previous two issues, robustness in required for transitioning into real world because real world is prone to noise, delay, faults, etc.
+
+We can attempt to solve these three key challenges by data-driven approach. Agent-agent relationship can be represented by graphs. We want agent to learn what message needs to be communicated and how to make decisions based on message received. We can leverage graph neural network to achieve these objectives. For example, graph neural network is used for solving multi-agent path finding problem\cite{decentralizedMultiRobotPathPlanning} -- a NP-hard problem. Later, attention mechanism is used to increase performance of the same problem\cite{messageAwareGraphAttentionMultiRobotPath}. Furthermore, Prorok et al.\cite{aFrameworkForRealWorldMultiRobotSystemsRunningDecentralizedGNNBasedPolicies} presented successful real-world deployment of GNN-based policies on a decentralized multi-robot system relying on Adhoc communication. A trickier version of the previous problem where robot and the sensors has no global information is also successfully solved by GNN based approach\cite{lLearningToNavigateUsingVisualSensorNetworks}. Matteo Bettini et al. introduced Heterogeneous Graph Neural Network Proximal Policy Optimization (HetGPPO), a paradigm for training heterogeneous MARL policies that leverages a Graph Neural Network\cite{HeterogeneousMultiRobotReinforcementLearning}.
+
+We can see that graph neural network is leveraged to solve agent-agent relationship problem arose in multi-robot system. Originally graph neural network is used to exploit graph data for many down stream task like node classification, link prediction etc. Several methods are available to use neural network in graphs. Deepwalk\cite{deepwalk} leverages random walk on nodes to create node embeddings. Node2vec\cite{node2vec} later improvised deepwalk\cite{deepwalk} by introducing DFS and BFS like random walk to create more tuned node embeddings. Graph Convolutional Network\cite{gcn} exploits messages from neighbouring nodes to create embedding. GraphSAGE\cite{graphsage} later increase user control over how the neighbouring nodes' message will be integrated to own embedding. GAT\cite{gat} is another approach to encode nodes into embedding by incorporating attention mechanism. GNN is also relevant in advanced type of graphs like heterogeneous graph\cite{HeterogeneousMultiRobotReinforcementLearning} and knowledge graph. One of the variation of embedding is to embed into hyperbolic space instead of euclidean space to introduce efficiency in embeddings. There are also many utility based application of GNN like drug discovery, graph generation, etc.
+
+%% Potential Way Forward %%
+Multi-agent systems uses GNN to communicate with agents i.e. they use message passing mechanism. Efficiency and robustness in message passing mechanism will drastically improve coordination, cooperation, collaboration -- three important factors of multi-agent systems. We can develop improved GNN which conveys message more efficiently. This improved type of GNN then can be used in some downstream tasks like multi-agent path finding, etc.
+
+Introduction of improved GNN will help us to step up collective intelligence and collective decision making. It will make us closer to the way of achieving natural system.
+\newpage
+
+\bibliography{citations.bib}
+\bibliographystyle{plain}
+
+\end{document}
+
+% https://www.overleaf.com/project/5e6f7ca071484c0001167b1d
