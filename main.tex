@@ -1,0 +1,44 @@
+\documentclass{beamer}
+\usetheme[progressbar=frametitle]{metropolis}
+\setbeamertemplate{frame numbering}[fraction]
+\useinnertheme{metropolis}
+\useoutertheme{metropolis}
+\usefonttheme{metropolis}
+\usecolortheme{spruce}
+
+\graphicspath{{./images/}}
+
+\newcommand\boldblue[1]{\textcolor{blue}{\textbf{#1}}}
+\newcommand\boldred[1]{\textcolor{red}{\textbf{#1}}}
+\newcommand\unfootnote[1]{%
+    \begingroup
+    \renewcommand\thefootnote{}\footnote{#1}%
+    \addtocounter{footnote}{-1}%
+    \endgroup
+}
+
+\title{Graph Neural Network}
+\subtitle{Graph Neural Network Introduction}
+\author{}
+\institute{}
+\date{12 June 2023}
+
+\usepackage{multicol}
+\setbeamercovered{transparent=5}
+
+\begin{document}
+\metroset{block=fill}
+\begin{frame}
+\titlepage
+    
+\end{frame}
+
+\include{everythingBeforeGNN}
+\include{nodeEmbedding}
+\include{GNN}
+
+\begin{frame}[standout]
+\flushleft
+Questions?
+\end{frame}
+\end{document}
